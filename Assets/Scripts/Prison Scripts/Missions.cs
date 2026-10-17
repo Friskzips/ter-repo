@@ -233,6 +233,9 @@ public class Missions : MonoBehaviour
                 rand = UnityEngine.Random.Range(1, count + 1);
                 message = GetINIVar("Missions_StealGuard", rand.ToString(), speechFile);
                 rand = UnityEngine.Random.Range(0, guardItems.Count);
+
+                Debug.Log("Test guardItems: " + guardItems.Count);
+
                 item = guardItems[rand];
                 remainingGuards = GetRemainingNPCs(giver, "Guard");
                 rand = UnityEngine.Random.Range(0, remainingGuards.Count);

@@ -29,6 +29,8 @@ public class ItemCollectionData : MonoBehaviour
 
         int id = Convert.ToInt32(str);
         itemData = creator.CreateItemData(id);
+
+        Debug.Log("Item set: " + itemData.displayName);
     }
     private IEnumerator Wait()
     {

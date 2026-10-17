@@ -10,7 +10,15 @@ public class NPCInvRNG : MonoBehaviour
     private Transform aStar;
     private Map currentMap;
     private ItemDataCreator creator;
+
+    /// <summary>
+    /// This is the list of items that an inmate can have, the list gets loaded with <see cref="GetItemList"/>
+    /// </summary>
     public List<int> itemsInInmates = new List<int>();
+
+    /// <summary>
+    /// This is the list of weapons that an inmate can have, the list gets loaded with <see cref="GetItemList"/>
+    /// </summary>
     public List<int> weaponsInInmates = new List<int>();
     private void Start()
     {
@@ -70,6 +78,7 @@ public class NPCInvRNG : MonoBehaviour
         for(int i = 0; i < rand; i++)
         {
             int idRand = UnityEngine.Random.Range(0, itemsInInmates.Count);
+            Debug.Log("Test idRand: " + itemsInInmates.Count);
             ItemData data = creator.CreateItemData(itemsInInmates[idRand]);
             NPCInvItem item = new NPCInvItem();
             data.inmateGiveName = null;
@@ -137,6 +146,7 @@ public class NPCInvRNG : MonoBehaviour
     }
     private void GetItemList()
     {
+        Debug.Log("map item amount: " + currentMap.itemAmount);
         for(int i = 0; i < currentMap.itemAmount; i++)
         {
             string str = i.ToString();
@@ -159,6 +169,7 @@ public class NPCInvRNG : MonoBehaviour
             {
                 weaponsInInmates.Add(i);
             }
+            
         }
     }
     public string GetINIVar(string header, string varName, string[] file)
